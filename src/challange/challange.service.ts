@@ -39,10 +39,11 @@ export class ChallangeService {
 
   private isMargin(margin, sizeArray, col, row) {
     return (
-      col < margin ||
-      row < margin ||
-      col > sizeArray - margin - 1 ||
-      row > sizeArray - margin - 1
+      col < margin || //left
+      row < margin || //top
+      col > sizeArray - margin - 1 || //right
+      row > sizeArray - margin - 1 //bottom
+      //note: -1 is bc sizeArray is eleven but the col|rows are 0 to 10
     );
   }
 
