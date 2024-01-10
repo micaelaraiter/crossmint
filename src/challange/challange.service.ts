@@ -41,8 +41,8 @@ export class ChallangeService {
     return (
       col < margin ||
       row < margin ||
-      col > sizeArray - margin ||
-      row > sizeArray - margin
+      col > sizeArray - margin - 1 ||
+      row > sizeArray - margin - 1
     );
   }
 
