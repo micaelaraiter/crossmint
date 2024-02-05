@@ -87,7 +87,7 @@ export class ChallangeService {
     }
   }
   async delayedAdd(column: number, row: number, ...args: any[]): Promise<void> {
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Intervalo de 1 segundo (1000 milisegundos)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     await this.strategy.add(column, row, ...args);
   }
 }

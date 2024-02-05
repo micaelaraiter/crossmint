@@ -15,7 +15,6 @@ export class ComethStrategy implements MegaverseInterface {
           'Content-Type': 'application/json',
         },
       });
-      console.log('Cometh added successfully:', response.data);
       return response.data;
     } catch (error) {
       console.error('Error adding cometh:', error);
