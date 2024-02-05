@@ -17,25 +17,10 @@ export class ChallangeService {
     try {
       const promises = this.getPositions(sizeArray, margin).map(
         async (position) => {
-          const data = JSON.stringify({
-            row: position[1],
-            column: position[0],
-            candidateId: process.env.CANDIDATE_ID,
-          });
-
-          const response = await axios.post(
-            `${process.env.API_URL}polyanets`,
-            data,
-            {
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            },
-          );
-          return response.data;
+          this.strategy = new PolyanetStrategy();
+          return this.delayedAdd(position[0], position[1]);
         },
       );
-
       const results = await Promise.all(promises);
       return results;
     } catch (error) {
